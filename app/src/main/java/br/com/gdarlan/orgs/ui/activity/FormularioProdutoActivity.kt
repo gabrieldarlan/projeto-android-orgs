@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import br.com.gdarlan.orgs.R
+import br.com.gdarlan.orgs.dao.ProdutosDao
 import br.com.gdarlan.orgs.model.Produto
 import java.math.BigDecimal
 
@@ -30,14 +31,21 @@ class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario
             } else {
                 BigDecimal(valorEmTexto)
             }
-            val novoProduto = Produto(
+            val produtoNovo = Produto(
                 nome = nome,
                 descricao = descricao,
                 valor = valor
             )
 
 
-            Log.i("FormularioProduto", "onCreate: $novoProduto")
+            Log.i("FormularioProduto", "onCreate: $produtoNovo")
+
+            val dao = ProdutosDao()
+            dao.adiciona(produto = produtoNovo)
+
+            Log.i("Lista de produtos", "onCreate: ${dao.buscaTodos()}")
+
+            finish()
         }
     }
 
