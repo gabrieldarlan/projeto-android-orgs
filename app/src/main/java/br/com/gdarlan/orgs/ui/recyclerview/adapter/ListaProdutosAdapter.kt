@@ -11,8 +11,10 @@ import br.com.gdarlan.orgs.model.Produto
 
 class ListaProdutosAdapter(
     private val context: Context,
-    private val produtos: List<Produto>
+    produtos: List<Produto>
 ) : RecyclerView.Adapter<ListaProdutosAdapter.ViewHolder>() {
+
+    private val produtos = produtos.toMutableList()
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun vincula(produto: Produto) {
@@ -36,9 +38,12 @@ class ListaProdutosAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val produto = produtos[position]
         holder.vincula(produto)
-
-
     }
 
     override fun getItemCount(): Int = produtos.size
+    fun atualiza(produtos: List<Produto>) {
+        this.produtos.clear()
+        this.produtos.addAll(produtos)
+        notifyDataSetChanged()
+    }
 }
