@@ -41,6 +41,13 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+
+    // Mascakara https://github.com/santalu/maskara
+    implementation("com.github.santalu:maskara:1.0.0")
+
+    // CurrencyEditText https://github.com/BlacKCaT27/CurrencyEditText
+    implementation("com.github.BlacKCaT27:CurrencyEditText:2.0.2")
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

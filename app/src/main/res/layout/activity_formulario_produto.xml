@@ -34,12 +34,23 @@
             app:layout_constraintTop_toBottomOf="@id/activity_formulario_produto_nome" />
 
 
-        <EditText
-            android:id="@+id/activity_formulario_valor"
+        <!--        <EditText-->
+        <!--            android:id="@+id/activity_formulario_valor"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:hint="Valor"-->
+        <!--            android:inputType="numberDecimal"-->
+        <!--            app:layout_constraintEnd_toEndOf="@id/activity_formulario_descricao"-->
+        <!--            app:layout_constraintStart_toStartOf="@id/activity_formulario_descricao"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/activity_formulario_descricao" />-->
+
+        <com.blackcat.currencyedittext.CurrencyEditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Valor"
             android:inputType="numberDecimal"
+            android:maxLength="18"
+            android:hint="Valor"
+            android:id="@+id/activity_formulario_valor_currency_edit_text"
             app:layout_constraintEnd_toEndOf="@id/activity_formulario_descricao"
             app:layout_constraintStart_toStartOf="@id/activity_formulario_descricao"
             app:layout_constraintTop_toBottomOf="@id/activity_formulario_descricao" />
@@ -55,7 +66,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintVertical_bias="1.0"
-            app:layout_constraintTop_toBottomOf="@+id/activity_formulario_valor" />
+            app:layout_constraintTop_toBottomOf="@+id/activity_formulario_valor_currency_edit_text" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
