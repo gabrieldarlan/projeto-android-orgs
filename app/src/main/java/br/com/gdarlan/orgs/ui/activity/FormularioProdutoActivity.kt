@@ -1,13 +1,11 @@
 package br.com.gdarlan.orgs.ui.activity
 
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import br.com.gdarlan.orgs.dao.ProdutosDao
 import br.com.gdarlan.orgs.databinding.ActivityFormularioProdutoBinding
-import br.com.gdarlan.orgs.databinding.FormularioImagemBinding
 import br.com.gdarlan.orgs.model.Produto
-import coil.load
+import br.com.gdarlan.orgs.ui.dialog.FormularioImagemDialog
 import java.math.BigDecimal
 
 class FormularioProdutoActivity : AppCompatActivity() {
@@ -24,24 +22,11 @@ class FormularioProdutoActivity : AppCompatActivity() {
         setContentView(binding.root)
         configuraBotaoSalvar()
         binding.activityFormularioImagem.setOnClickListener {
-            val bindingFormularioImagem = FormularioImagemBinding.inflate(layoutInflater)
-            bindingFormularioImagem.formularioImagemBotaoCarregar.setOnClickListener {
-                var url = bindingFormularioImagem.formularioImagemUrl.text.toString()
-                bindingFormularioImagem.formularioImagemImageview.load(url)
-            }
-
-            AlertDialog.Builder(this)
-                .setView(bindingFormularioImagem.root)
-                .setPositiveButton("Confirmar") { _, _ ->
-                    url = bindingFormularioImagem.formularioImagemUrl.text.toString()
-                    binding.activityFormularioImagem.load(url)
-                }
-                .setNegativeButton("Cancelar") { _, _ ->
-
-                }
-                .show()
+            FormularioImagemDialog(this).mostra()
         }
+
     }
+
 
     private fun configuraBotaoSalvar() {
         val botaoSalvar = binding.activityFormularioBotaoSalvar
